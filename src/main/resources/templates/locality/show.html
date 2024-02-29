@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:layout="http://www.ultraq.net.mx/thymeleaf/layout"
+ layout:decorate="~{layouts/main}">
+<head>
+<title>Fiche d'une localité</title>
+</head>
+<body>
+	<div class="container">
+	     <div layout:fragment="content">
+	        <h1 th:text="${locality.postalCode} +' '+ ${locality.locality}">1000 Bruxelles</h1>
+	        <!--<h1 th:text="|${locality.postalCode}  ${locality.locality}|">1000 Bruxelles</h1>
+                -->
+	        <ul th:unless="${#lists.isEmpty(locality.locations)}">
+	       	<li th:each="location : ${locality.locations}" 
+    			 th:text="${location.designation}">Dexia Art center</li>
+   	        </ul>
+
+   	        <p th:if="${#lists.isEmpty(locality.locations)}">Aucun lieu de spectacle.</p>
+        
+	        <nav><a th:href="@{/localities}">Retour à l'index</a></nav>
+	     </div>
+	</div>
+</body>
+</html>
+
+
+

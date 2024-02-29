@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:layout="http://www.ultraq.net.mx/thymeleaf/layout"
+ layout:decorate="~{layouts/main}">
+<head>
+<title>Liste des localités</title>
+</head>
+<body>
+	<div class="container">
+	     <div layout:fragment="content">
+	        <h1 th:text="${title}">Liste des localités</h1>
+	
+	        <ul th:unless="${#lists.isEmpty(localities)}">
+                	<li th:each="locality : ${localities}">
+		    <span th:text="|${locality.postalCode} ${locality.locality}|">1000 Bruxelles</span>
+	    <a th:href="@{/localities/{id}(id=${locality.id})}">View</a>
+	</li>
+	        </ul>
+	    </div>
+	</div>
+</body>
+</html>
+

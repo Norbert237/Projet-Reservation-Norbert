@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:layout="http://www.ultraq.net.mx/thymeleaf/layout"
+ layout:decorate="~{layouts/main}">
+<head>
+<title>Liste des rôles</title>
+</head>
+<body>
+	<div class="container">
+	     <div layout:fragment="content">
+	        <h1 th:text="${title}">Liste des rôles</h1>
+	
+	        <ul th:unless="${#lists.isEmpty(roles)}">
+                	<li th:each="role : ${roles}">
+			<span th:text="${role.role}">Admin</span>
+			<a th:href="@{/roles/{id}(id=${role.id})}">View</a>
+		</li>
+	        </ul>
+	    </div>
+	</div>
+</body>
+</html>
+

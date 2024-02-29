@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Header fragment</title>
+  </head>
+  <body>
+    <header class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Réservations</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li th:classappend="${module == 'home' ? 'active' : ''}">
+              <a href="#" th:href="@{/}">Home</a>
+            </li>
+            <li th:classappend="${module == 'artists' ? 'active' : ''}">
+              <a href="#" th:href="@{/artists}">Artists</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>

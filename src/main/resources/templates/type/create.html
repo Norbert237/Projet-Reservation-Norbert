@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="fr" xmlns:layout="http://www.ultraq.net.mx/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+    <head>
+        <title>Création d'un type</title>
+        <style>
+            .fieldError {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div layout:fragment="content">
+                <h1>Nouveau type</h1>
+                
+                
+                <form th:action="@{/types/create}" th:object="${typee}" method="post">
+    <div>
+        <label for="typee">Type:</label>
+        <input type="text" th:field="*{type}">
+        <p th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="fieldError"></p>
+    </div>
+
+    <div>
+        <button type="submit">Create</button>
+        <button type="reset">Réinitialiser</button>
+        <a href="@{/types}">Annuler</a>
+    </div>
+</form>
+
+
+                <nav><a th:href="@{/artists}">Retour à l'index</a></nav>
+            </div>
+        </div>
+    </body>
+</html>
+
